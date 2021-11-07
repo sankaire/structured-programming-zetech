@@ -22,7 +22,6 @@
 IDENTIFIERS
 ----------------------
 */
-
 #include <stdio.h>
 int main(){
     printf("\tCounty Library Management System\n");
