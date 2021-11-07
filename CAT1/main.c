@@ -14,7 +14,7 @@ int main() {
     char ch;
     double num1, num2;
 
-    //promting the user to enter numbers
+    //promting the user to enter numbers and operation
 
     printf("Enter an operator (a, s, m, d): ");
 
@@ -26,7 +26,7 @@ int main() {
     //storing the numbers
     scanf("%lf %lf", &num1, &num2);
 
-    //comutation and output
+    //computation and output
     switch(ch) {
         case 'a':
         printf("%.1lf + %.1lf = %.1lf \n", num1, num2, num1 + num2);
