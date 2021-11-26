@@ -1,74 +1,100 @@
-/*----------------------------
-    Project: Library system
-    Author: TEPELA KERENKE
-    Date: 5/10/2021
-    Compiler: GCC
-    Licence: MIT
----------------------------------*/
-// ./a.out
-// \t creates a space
+/*
+    Project: County Library management system.
+    Author:  Titus Njiru
+    Date:    Oct,2021
+    Compiler: GNU GCC
+    Language: C99
+    License: MIT
+*/
 
 /*
-    DATA TYPES
 
-    -Groups data according to the operations that can be
-    performed on that data
-        => int - intergers rep whole numbers both -ve and +ve
-        => char - a single ASCII character. usually enclosed in '
-        => double - floating points numbers with a double precision
-        => float - numbers with a fraction part 
-        => void -null || nothing
-----------------------
-IDENTIFIERS
-----------------------
+Users - view users,Add new user, edit,delete,login,change password,logout
+catalogue
+Issuance
+Serial
+Acquisition
+
+Navigation
+
 */
 #include <stdio.h>
+#include <stdlib.h>
+// #include <windows.h>
+
+int menu(); // prototype
+void execute_action(int action);
+void close();
 int main()
 {
     int action;
-    printf("\tCounty Library Management System\n");
-    printf("1:Log in: \n"); // The admnin log in to the system
-    printf("Welcome Mr Peter\n");
-    printf("2:Add user: \n");        //Adding the user
-    printf("3:Add book: \n");        //adding a book
-    printf("4:Delete user: \n");     //deleting user option
-    printf("5:Delete book: \n");     //deleting a book when necessary
-    printf("6:Update user: \n");     //updating the user profile
-    printf("7:Change password: \n"); //changing password whenever the admin want
-    printf("8:Log out => \n");       //log out of the system option
-    scanf("%d", &action);
-
+    action = menu();
+    execute_action(action);
     return 0;
-    void execute_user_action(int action)
+}
+
+int menu() //header
+{
+    int action;
+    do
     {
-        switch (action)
+        printf("\tCounty Library\n");
+        printf("Welcome Mr. Titus. \n");
+        printf("What would you like to do?\n");
+        printf("1. View Users.\n");
+        printf("2. Add new User\n");
+        printf("3. Edit User.\n");
+        printf("4. Delete User.\n");
+        printf("5. Change Password.");
+        printf("6. Logout.\n");
+        printf("7. Exit.\n");
+        printf("Selected action(1-7): ");
+        scanf("%d", &action);
+        if (action < 1 || action > 7)
         {
-        case 1:
-            printf("Logged in");
-            break;
-        case 2:
-            printf("Add user");
-            break;
-        case 3:
-            printf("Add book");
-            break;
-        case 4:
-            printf("Delete User");
-            break;
-        case 5:
-            printf("Delete book");
-            break;
-        case 6:
-            printf("Update User");
-            break;
-        case 7:
-            printf("Change password");
-            break;
-        case 8:
-            printf("Logeed Out");
-            break;
-        default:
-            printf("Unrecognized action. \n");
+            // system("cls");
+            printf("Invalid Action. Try again.\n");
         }
+    } while (action < 1 || action > 7);
+
+    return action;
+}
+
+void execute_action(int action)
+{
+    switch (action)
+    {
+    case 1:
+        printf("List of users\n");
+        break;
+    case 2:
+        printf("Add new user\n");
+        break;
+    case 3:
+        printf("Editing user\n");
+        break;
+    case 4:
+        printf("Deleting User\n");
+        break;
+    case 5:
+        printf("Changing password\n");
+        break;
+    case 6:
+        printf("You have been logged out\n");
+        break;
+    case 7:
+        close();
+        break;
+    default:
+        printf("Invalid action\n");
     }
+}
+
+void close()
+{
+    printf("Thanks for using the system\n");
+    printf("Created by Titus Njiru\n");
+    printf("Bye\n");
+    // Sleep(2000);
+    exit(0);
 }
